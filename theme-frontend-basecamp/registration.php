@@ -6,4 +6,4 @@
 
 use \Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::THEME, 'frontend/AHT/theme-frontend-basecamp', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::THEME, 'frontend/AHT/basecamp', __DIR__);
