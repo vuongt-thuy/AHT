@@ -1,0 +1,112 @@
+.new-blog {
+    &-title {
+        text-align : center;
+        font-weight: bold;
+        font-size  : 24px;
+        padding    : 20px;
+    }
+
+    &-home {
+        display              : grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap      : 20px;
+
+        &-left img {
+            width     : 100%;
+            max-height: 405px;
+            object-fit: cover;
+        }
+
+        &-right {
+            display              : grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap      : 30px;
+
+            .content-blog {
+                &-img img {
+                    width     : 100%;
+                    max-height: 172px;
+                    object-fit: cover;
+                }
+
+                &-text {
+                    text-align: justify;
+
+                    h3 {
+                        margin-top: 10px;
+
+                        a {
+                            color      : #000000;
+                            font-weight: bold;
+                            font-size  : 15px;
+                        }
+                    }
+
+                    p {
+                        padding-top: 12px;
+
+                        a {
+                            color          : #000000;
+                            border-bottom  : 1px solid #8b8b8b;
+                            font-weight    : bold;
+                            text-decoration: none;
+
+                            &:hover {
+                                color: @color-orange-red1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* new hover effect */
+.blog-effect {
+    a {
+        display  : block;
+        height   : 100%;
+        max-width: 100%;
+        position : relative;
+        width    : 100%;
+
+        &::before {
+            background-color: rgba(255, 255, 255, 0.15);
+            content         : "";
+            height          : 100%;
+            left            : 0;
+            position        : absolute;
+            top             : 0;
+            transition      : all 0.3s ease-out 0s;
+            width           : 100%;
+            transform       : scale(0);
+        }
+
+        &::after {
+            background-color: rgba(255, 255, 255, 0.15);
+            bottom          : 0;
+            content         : "";
+            height          : 0;
+            position        : absolute;
+            right           : 0;
+            transition      : all 0.3s ease-out 0s;
+            width           : 0;
+        }
+    }
+
+    &:hover {
+
+        & a::after,
+        & a::before {
+            height    : 100%;
+            transition: all 0.4s ease-out 0s;
+            width     : 100%;
+        }
+
+        & a::before {
+            transform : scale(1);
+            transition: all 0.4s ease-out 0s;
+        }
+    }
+}
