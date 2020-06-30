@@ -1,12 +1,23 @@
-<?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<?xml version="1.0"?><<<<<<< HEAD
+
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
+            <block class="Magento\Framework\View\Element\Template" name="home-page-block-carosel" template="Magento_Cms::carosel.phtml" />
             <block class="Magento\Cms\Block\Block" name="promotion.home">
                 <arguments>
                     <argument name="block_id" xsi:type="string">home-promotion</argument>
                 </arguments>
             </block>
+            <block class="Magento\Framework\View\Element\Template" name="product-sale-home" template="Magento_Cms::product-sale-home.phtml" before="new-blog-home" />
+            <block class="Magento\Framework\View\Element\Template" name="new-blog-home" template="Magento_Cms::new_blog_home.phtml" after="-" />
         </referenceContainer>
     </body>
 </page>
