@@ -1,9 +1,27 @@
-.home-brand{
-	display: flex;
-	justify-content: center;
-	.home-brand-img{
-	width: 80%;
-	display: flex;
-	justify-content: center;
+& when (@media-common = true) {
+	.home-brand{
+		display: flex;
+		justify-content: center;
+		min-height: 100px;
+		align-items: center;
+		.home-brand-img{
+			width: 80%;
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	//
+	// Tablets 
+	// _____________________________________________
+
+	@media only screen and (max-width: @screen__m) {
+		.home-brand{
+			min-height: 20px;
+			.home-brand-img{
+				width: 100%;
+			}
+		}
+	}
 }
-}
+
