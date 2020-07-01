@@ -1,77 +1,77 @@
-  .lib-font-face(
-  	@family-name: @font-family-name__caveat,
-  	@font-path: "@{baseDir}fonts/CaveatBrush-Regular",
-  	@font-weight: 300,
-  	@font-style: normal,
-  	@font-display: swap
-  	);
+	.lib-font-face(
+		@family-name: @font-family-name__caveat,
+		@font-path: "@{baseDir}fonts/CaveatBrush-Regular",
+		@font-weight: 300,
+		@font-style: normal,
+		@font-display: swap
+		);
 
-  @font-family-name__caveat: "CaveatBrush-Regular";
-  @font-family__caveat: @font-family-name__caveat, cursive;
+	@font-family-name__caveat: "CaveatBrush-Regular";
+	@font-family__caveat: @font-family-name__caveat, cursive;
 
-  & when (@media-common = true) {
-  	.home-page-owl-carousel{
-  		.item{
-  			position: relative;
-  			.item-content{
-  				position: absolute;
-  				top: 33%;
-  				left: 18%;
-  				transform: rotate(-7deg);  
-  				font-family: @font-family__caveat;
-  				text-transform: uppercase;
-  				text-align: center;  	
-  			}
-  			p{
-  				font-size: 73px;
-  				line-height: 60px;
-  				.lib-css(color, @color-white);
-  			}
-  			a{
-  				font-size: 30px;
-  				line-height: 0px;
-  				cursor: pointer;
-  				.lib-css(color, @color-red10);
-  			}
-  		}
-  	}
-  }
-
-  .media-width(@extremum, @break)
-  when
-  (@extremum = "min")
-  and
-  (@break = @screen__m) {
-  	.home-page-owl-carousel{
-  		.item{
-
-  				p {
-  					font-size: 73px;
-  					line-height: 65px;
-  				}
-  			}
-  		}
-  	}
+	& when (@media-common = true) {
+		.home-page-owl-carousel{
+			.item{
+				position: relative;
+				.item-content{
+					position: absolute;
+					top: 33%;
+					left: 18%;
+					transform: rotate(-7deg);  
+					font-family: @font-family__caveat;
+					text-transform: uppercase;
+					text-align: center;  	
+				}
+				p{
+					font-size: 73px;
+					line-height: 60px;
+					.lib-css(color, @color-white);
+				}
+				a{
+					font-size: 30px;
+					line-height: 0px;
+					cursor: pointer;
+					.lib-css(color, @color-red10);
+				}
+			}
+		}
 
 
-  .media-width(@extremum, @break)
-  when
-  (@extremum = "max")
-  and
-  (@break = @screen__m) {
-  	.home-page-owl-carousel{
-  		.item{
 
-  				p {
-  					font-size: 45px;
-  					line-height: 40px;
-  				}
-  				a {
-  					line-height: 20px;
-  				}
-  		}
-  	}
-  }
+	//
+	// Tablets 
+	// _____________________________________________
+
+	@media only screen and (max-width: @screen__m) {
+		.home-page-owl-carousel{
+			.item{
+				p {
+					font-size: 40px;
+					line-height: 30px;
+				}
+			}
+		}
+	}
+	//
+	//  Mobile (styles-m.css)
+	//  
+
+	@media only screen and (max-width: @screen__xs) {
+		.home-page-owl-carousel{
+			.item{
+				p,
+				a {
+					font-size: 20px;
+					line-height: 15px;
+					margin-bottom: 5px;
+				}
+				a{
+					line-height: 0;
+				}
+			}
+		}
+	}
+}
 
 
 
