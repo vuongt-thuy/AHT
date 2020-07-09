@@ -49,7 +49,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
         <ol class="products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
             <?php foreach ($_productCollection as $_product) : ?>
-                <li class="item product product-item">
+                <li class="item product product-item product-item-catalog">
                     <div class="product-item-info" data-container="product-<?= /* @noEscape */ $viewMode ?>">
                         <?php
                         $productImage = $block->getImage($_product, $imageDisplayArea);
@@ -74,42 +74,6 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
                             </strong>
 
                             <?= /* @noEscape */ $block->getProductPrice($_product) ?>
-
-
-                            <div class="product-item-inner">
-                                <div class="product actions product-item-actions" <?= strpos($pos, $viewMode . '-actions') ? $block->escapeHtmlAttr($position) : '' ?>>
-                                    <div class="actions-primary" <?= strpos($pos, $viewMode . '-primary') ? $block->escapeHtmlAttr($position) : '' ?>>
-                                        <?php if ($_product->isSaleable()) : ?>
-                                            <?php $postParams = $block->getAddToCartPostParams($_product); ?>
-                                            <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtmlAttr($_product->getSku()) ?>" action="<?= $block->escapeUrl($postParams['action']) ?>" method="post">
-                                                <input type="hidden" name="product" value="<?= /* @noEscape */ $postParams['data']['product'] ?>">
-                                                <input type="hidden" name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
-                                                <?= $block->getBlockHtml('formkey') ?>
-                                                <button type="submit" title="<?= $block->escapeHtmlAttr(__('BUY NOW')) ?>" class="action tocart primary">
-                                                    <span><?= $block->escapeHtml(__('BUY NOW')) ?></span>
-                                                </button>
-                                            </form>
-                                        <?php else : ?>
-                                            <?php if ($_product->isAvailable()) : ?>
-                                                <div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
-                                            <?php else : ?>
-                                                <div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div data-role="add-to-links" class="actions-secondary" <?= strpos($pos, $viewMode . '-secondary') ? $block->escapeHtmlAttr($position) : '' ?>>
-                                        <?php if ($addToBlock = $block->getChildBlock('addto')) : ?>
-                                            <?= $addToBlock->setProduct($_product)->getChildHtml() ?>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <?php if ($showDescription) : ?>
-                                    <div class="product description product-item-description">
-                                        <?= /* @noEscape */ $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
-                                        <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>" title="<?= /* @noEscape */ $_productNameStripped ?>" class="action more"><?= $block->escapeHtml(__('Learn More')) ?></a>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
                         </div>
                     </div>
                 </li>
