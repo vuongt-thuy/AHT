@@ -1,11 +1,12 @@
+@color__link-red: #ec2f67;
+
 .grid-column (@start, @end) {
   grid-column-start: @start;
   grid-column-end: @end;
   position: relative;
 }
-& when (@media-common = true) {
-  @color__link-red: #ec2f67;
 
+& when (@media-common = true) {
   .lib-font-face(
           @family-name: @font-family-name__caveat,
           @font-path: "@{baseDir}fonts/CaveatBrush-Regular",

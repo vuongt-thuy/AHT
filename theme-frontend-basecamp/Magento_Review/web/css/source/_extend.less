@@ -1,0 +1,40 @@
+& when (@media-common = true) {
+    .product-reviews-summary {
+      border-bottom: 1px solid @color-gray-light5;
+      width: 100%;
+      .rating-summary,
+      .reviews-actions {
+        margin-bottom: @indent__s + @indent__xs;
+      }
+    }
+  
+    .reviews-share {
+      float: right;
+      a {
+        color: @color-black;
+        text-decoration: none;
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  
+  //
+  //  Desktop
+  //  _____________________________________________
+  
+  .media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .product-reviews-summary {
+      .reviews-actions {
+        a {
+          color: @color-black;
+        }
+      }
+    }
+  }
+  

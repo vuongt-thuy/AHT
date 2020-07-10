@@ -1,0 +1,34 @@
+<?php
+
+$url = $block->getReviewsUrl() . '#reviews';
+$urlForm = $block->getReviewsUrl() . '#review-form';
+?>
+<?php if ($block->isReviewEnabled() && $block->getReviewsCount()) : ?>
+    <?php $rating = $block->getRatingSummary(); ?>
+    <div class="product-reviews-summary<?= !$rating ? ' no-rating' : '' ?>" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+        <?php if ($rating) : ?>
+            <div class="rating-summary">
+                <span class="label"><span><?= $block->escapeHtml(__('Rating')) ?>:</span></span>
+                <div class="rating-result" title="<?= $block->escapeHtmlAttr($rating); ?>%">
+                    <span style="width:<?= $block->escapeHtmlAttr($rating); ?>%">
+                        <span>
+                            <span itemprop="ratingValue"><?= $block->escapeHtml($rating); ?></span>% of <span itemprop="bestRating">100</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        <?php endif; ?>
+        <div class="reviews-actions">
+            <a class="action view" href="<?= $block->escapeUrl($url) ?>">
+                <span itemprop="reviewCount"><?= $block->escapeHtml($block->getReviewsCount()) ?></span>&nbsp;
+                <span><?= ($block->getReviewsCount() == 1) ? $block->escapeHtml(__('Review')) : $block->escapeHtml(__('Reviews')) ?></span>
+            </a>
+        </div>
+        <div class="reviews-share">
+            <a href="#"><i class="fa fa-share-alt"></i>Share</a>
+        </div>
+    </div>
+<?php elseif ($block->isReviewEnabled() && $block->getDisplayIfEmpty()) : ?>
+    <div class="product-reviews-summary empty">
+    </div>
+<?php endif; ?>

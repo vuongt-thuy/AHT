@@ -1,2 +1,68 @@
 @import "module/product/_product_catalog.less";
 @import "module/product/_button_add_cart.less";
+@import "module/product/_button.less";
+@import "module/_extend_listings.less";
+
+& when (@media-common = true) {
+  .product-info-main {
+    .product-info-price {
+      border-bottom: none;
+    }
+  }
+
+  //
+  //  Blocks & Widgets
+  //  ---------------------------------------------
+
+  .block {
+    .title {
+      text-align: center;
+    }
+  }
+
+  .fotorama {
+    margin-bottom: 50px;
+  }
+  .fotorama__stage__frame {
+    .fotorama__img {
+      height: 100% !important;
+      object-fit: cover;
+    }
+  }
+
+  .fotorama__wrap--css3.fotorama__wrap--slide {
+    .fotorama__stage__frame {
+      width: 99.5%;
+      height: 99.5%;
+      border: 1px solid #868686;
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break)
+  when
+  (@extremum = "min")
+  and
+  (@break = @screen__m) {
+  .product.data.items {
+    > .item.title {
+      > .switch {
+        font-weight: 600;
+        border-radius: 5px;
+        margin: 0 3px;
+      }
+      width: 33.444444%;
+      text-align: center;
+      &.active > .switch,
+      &.active > .switch:focus,
+      &.active > .switch:hover {
+        background: #4f4f4f;
+        color: white;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="view.addto.compare" remove="true" />
+        <referenceBlock name="product.info.sku" remove="true" />
+        <move element="product.info.review" destination="product.info.main" after="product.info.price"/>
+        <referenceBlock name="product.info.description">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Overviews</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="product.attributes">
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Delivery &amp; Return</argument>
+            </arguments>
+        </referenceBlock>
+        <move element="product.info.details" destination="product.info.media" after="skip_gallery_before.target" />
+        <move element="product.info.upsell" destination="product.info.main" after="-" />
+        <move element="catalog.product.related" destination="product.info.main" after="-" />
+    </body>
+</page>

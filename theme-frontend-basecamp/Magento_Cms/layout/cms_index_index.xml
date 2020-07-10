@@ -15,7 +15,12 @@
                 <arguments>
                     <argument name="block_id" xsi:type="string">home-page-brand</argument>
                 </arguments>
-            </block>           
+            </block>       
+            <block class="Magento\Cms\Block\Block" name="category.home">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">home-category</argument>
+                </arguments>
+            </block>    
              <block class="Magento\Cms\Block\Block" name="promotion.home">
                 <arguments>
                     <argument name="block_id" xsi:type="string">home-promotion</argument>
