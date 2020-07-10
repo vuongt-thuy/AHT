@@ -1,0 +1,167 @@
+& when (@media-common = true) {
+	.page-footer {
+
+		.footer.content {
+			border-top: 0;
+			padding-bottom: 100px;	
+
+		    .footer-area-2 {
+		    	.footer-area-item {
+			    	display: grid;
+				    grid-template-columns: 1fr 1fr;
+				    grid-gap: 20px;
+
+		    	}
+				
+		    }
+
+		    .footer-col {
+			    padding-top: 10px;
+
+				h4 {
+					font-size: 18px;
+					color: #ff3e02;
+				}
+
+				.footer-col-content {
+					li {
+						display: block;
+						margin-bottom: 10px;
+
+						a {
+							color: #f4f4f4;
+
+							&:hover {
+								color: #fff;
+								text-decoration: none;
+							}
+						}
+
+						span {
+							color: #fff;
+							font-weight: bold;
+						}
+					}
+
+					.dublin-address {
+						padding-bottom: 20px;
+						border-bottom: .5px solid #ff3e02;
+					}
+
+					.kilkenny-address {
+						padding-top: 20px;
+					}
+
+					.address {
+						padding-bottom: 20px;
+					}
+
+					.list-icon {
+						li {
+							float: left;
+							img {
+								width: 35px;
+								margin-right: 10px
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.nav-toggle:before {
+			content: none;
+		}
+	}	
+
+	.logo-footer {
+		padding-top: 30px;
+
+		.logo {
+			display: block;
+		    width: 100%;
+		    text-align: center;
+		    margin: 0;
+		    float: none;
+		    max-width: none;
+
+		    img {
+		    	display: inline-block;
+		    }
+		}
+
+		.copyright {
+			background-color: #3e3b42;
+		}
+	}
+}
+
+.page-footer {
+	background: #3e3b42;
+}
+
+//
+//  Mobile (styles-m.css)
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+    .footer-mobile {
+	    grid-template-columns: 1fr;
+	    grid-gap: 0px;
+    }
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .footer-mobile {
+		display: grid;
+	    grid-template-columns: 1fr 1fr;
+	    grid-gap: 10px;
+    }
+
+    .footer-col {
+	    padding-bottom: 10px;
+	}
+
+    .footer-destop {
+    	display: none;
+    }
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .footer-mobile {
+		display: grid;
+	    grid-template-columns: 1fr 1fr 1fr;
+	    grid-gap: 20px;
+    }
+
+    .footer-col {
+	    padding-bottom: 30px;
+	}
+
+    .footer.content ul {
+    	padding-right: 0px; 
+	}
+
+	.footer-my-account-m {
+		grid-area: 2;
+	}
+
+	.footer-destop {
+    	display: none;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .footer-mobile, 
+    .logo-footer-m {
+    	display: none;
+    }
+
+    .footer-destop {
+    	display: grid;
+	    grid-template-columns: 1fr 2fr 1fr;
+	    grid-gap: 30px;
+    }
+}

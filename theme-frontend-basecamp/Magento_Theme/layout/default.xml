@@ -7,7 +7,135 @@
 -->
 <page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="default_head_blocks"/>
+        	<move element="copyright" destination="logo-footer" after="-"/>
+
     <body>
-        
+        <referenceBlock name="form.subscribe" remove="true"></referenceBlock>
+        <referenceBlock name="footer_links" remove="true"></referenceBlock>
+        <referenceContainer name="footer">
+
+        	<container name="footer.destop" htmlTag="div" htmlClass="footer-destop">
+
+	        	<container name="footer.area1" as="footer-area1" label="Footer Area 1" htmlTag="div" htmlClass="footer-area">
+	        		<container htmlTag="div" htmlClass="footer-col">
+		        		<block class="Magento\Cms\Block\Block" name="footer-browse-basecamp">
+		                    <arguments>
+		                        <argument name="block_id" xsi:type="string">footer-browse-basecamp</argument>
+		                    </arguments>
+		                </block>
+	        		</container>
+
+	        		<container htmlTag="div" htmlClass="footer-col">
+		                <block class="Magento\Cms\Block\Block" name="footer-stay-connected">
+		                    <arguments>
+		                        <argument name="block_id" xsi:type="string">footer-stay-connected</argument>
+		                    </arguments>
+		                </block>
+	        		</container>
+	        	</container>
+	        	<container name="footer.area2" as="footer-area2" label="Footer Area 2" htmlTag="div" htmlClass="footer-area footer-area-2">
+	        		<container htmlTag="div" htmlClass="footer-area-item" >
+		        		<container htmlTag="div">
+		        			<container htmlTag="div" htmlClass="footer-col">
+			        			<block class="Magento\Cms\Block\Block" name="footer-my-account">
+				                    <arguments>
+				                        <argument name="block_id" xsi:type="string">footer-my-account</argument>
+				                    </arguments>
+				                </block>
+		        			</container>
+
+		        			<container htmlTag="div" htmlClass="footer-col">
+								<block class="Magento\Cms\Block\Block" name="footer-we-accept">
+				                    <arguments>
+				                        <argument name="block_id" xsi:type="string">footer-we-accept</argument>
+				                    </arguments>
+				                </block>
+		        			</container>
+		        		</container>
+
+		        		<container htmlTag="div">
+		        			<container htmlTag="div" htmlClass="footer-col">
+			        			<block class="Magento\Cms\Block\Block" name="footer-terms-and-conditions">
+				                    <arguments>
+				                        <argument name="block_id" xsi:type="string">footer-terms-and-conditions</argument>
+				                    </arguments>
+				                </block>
+		        			</container>
+		        		</container>
+	        			
+	        		</container>
+	        		<container htmlTag="div" htmlClass="logo-footer"  name="logo-footer">
+	        			<block class="Magento\Theme\Block\Html\Header\Logo" name="logo-2"/>
+	        		</container>
+		        		      
+	        	</container>
+	        	<container name="footer.area3" as="footer-area3" label="Footer Area 3" htmlTag="div" htmlClass="footer-area">
+	        		<container htmlTag="div" htmlClass="footer-col">
+		        		<block class="Magento\Cms\Block\Block" name="footer-we-are-located-at">
+		                    <arguments>
+		                        <argument name="block_id" xsi:type="string">footer-we-are-located-at</argument>
+		                    </arguments>
+		                </block>
+	        		</container>
+	        	</container>
+        	</container>
+
+        	<container name="footer.mobile" htmlTag="div" htmlClass="footer-mobile">
+				<container htmlTag="div" htmlClass="footer-col">
+	        		<block class="Magento\Cms\Block\Block" name="footer-browse-basecamp-m">
+	                    <arguments>
+	                        <argument name="block_id" xsi:type="string">footer-browse-basecamp</argument>
+	                    </arguments>
+	                </block>
+	    		</container>
+
+	    		<container htmlTag="div" htmlClass="footer-col footer-my-account-m">
+	    			<block class="Magento\Cms\Block\Block" name="footer-my-account-m">
+	                    <arguments>
+	                        <argument name="block_id" xsi:type="string">footer-my-account</argument>
+	                    </arguments>
+	                </block>
+				</container>
+
+				<container htmlTag="div" htmlClass="footer-col">
+	    			<block class="Magento\Cms\Block\Block" name="footer-terms-and-conditions-m">
+	                    <arguments>
+	                        <argument name="block_id" xsi:type="string">footer-terms-and-conditions</argument>
+	                    </arguments>
+	                </block>
+				</container>
+
+
+				<container htmlTag="div" htmlClass="footer-col">
+	        		<block class="Magento\Cms\Block\Block" name="footer-we-are-located-at-m">
+	                    <arguments>
+	                        <argument name="block_id" xsi:type="string">footer-we-are-located-at</argument>
+	                    </arguments>
+	                </block>
+	    		</container>
+
+	    		<container htmlTag="div" htmlClass="footer-col">
+	                <block class="Magento\Cms\Block\Block" name="footer-stay-connected-m">
+	                    <arguments>
+	                        <argument name="block_id" xsi:type="string">footer-stay-connected</argument>
+	                    </arguments>
+	                </block>
+	    		</container>
+
+	    		<container htmlTag="div" htmlClass="footer-col">
+					<block class="Magento\Cms\Block\Block" name="footer-we-accept-m">
+	                    <arguments>
+	                        <argument name="block_id" xsi:type="string">footer-we-accept</argument>
+	                    </arguments>
+	                </block>
+				</container>
+        	</container>
+			
+			<container htmlTag="div" htmlClass="logo-footer logo-footer-m"  name="logo-footer-m">
+    			<block class="Magento\Theme\Block\Html\Header\Logo" name="logo-3"/>
+    			<block class="Magento\Theme\Block\Html\Footer" name="copyright-1" template="Magento_Theme::html/copyright.phtml"/>
+    		</container>
+			
+        </referenceContainer>
     </body>
 </page>

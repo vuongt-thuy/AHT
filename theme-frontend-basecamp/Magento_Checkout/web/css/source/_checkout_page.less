@@ -1,0 +1,187 @@
+& when (@media-common = true) {
+	.opc-wrapper .field .control .field-tooltip {
+	 	display: none;
+	}
+
+	.field .control._with-tooltip input {
+	 	width: 100%;
+	}
+
+	.fieldset:last-child {
+	 	margin-bottom: 0;
+	}
+
+	.fieldset {
+	 	margin: 0;
+	}
+
+	#customer-email-fieldset .field {
+	 	margin: 0;
+	}
+	
+	.opc-wrapper {
+		input[type="text"], 
+		input[type="password"], 
+		input[type="url"], 
+		input[type="tel"], 
+		input[type="search"], 
+		input[type="number"], 
+		input[type="datetime"], 
+		input[type="email"],
+		select {
+			height: 45px;
+			background: #f9f9f9;
+		}
+	}
+
+	.fieldset > .field, .fieldset > .fields > .field {
+		margin-bottom: 10px;
+	}
+
+	.opc-wrapper .form-shipping-address {
+		margin-bottom: 0;
+	}
+	
+	.note > span {
+		display: none;
+	}
+
+	.table-checkout-shipping-method tbody tr td {
+		border-top: none;
+	}
+
+	.button.continue {
+		width: 100%;
+		background-color: #7ebf3a; 
+		&:hover {
+			background-color: #00ae66;
+		}
+	}
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	.checkout-index-index .nav-sections, .checkout-index-index .nav-toggle {
+		display: block;
+	}
+
+	.checkout-index-index .logo {
+		margin-left: 40px;
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+	.checkout-index-index {
+		.page-main {
+			max-width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	.checkout-index-index .nav-sections {
+	    display: block;
+	}
+
+	.checkout-index-index .nav-toggle {
+		display: none;
+	}
+
+	.opc-progress-bar {
+		display: flex;
+    	justify-content: center;
+		margin: 0 auto;
+		border-bottom: 1px solid #444;
+	
+		.opc-progress-bar-item {
+			width: 100% / 3;
+
+			&._active {
+				background: #f6ffec;
+			}
+		}
+
+	}
+
+	.opc-progress-bar-item > span {
+		padding-top: 0px;
+		border: 1px solid #444;
+	}
+
+	.opc-progress-bar-item::before {
+		content: none;
+	}
+	
+	.opc-progress-bar-item > span::before, 
+	.opc-progress-bar-item > span::after,
+	.opc-progress-bar-item._active > span:after,
+	.opc-progress-bar-item._complete > span:after {
+		content: none;
+	}
+
+
+	.opc-wrapper {
+		margin: 0 auto;
+    	padding-top: 20px;
+    	padding-right: 0;
+    	float: none;
+
+    	&::before {
+    		display: block;
+    		content: "Checkout";
+    		font-size: 3rem;
+    		padding-bottom: 15px;
+    	}
+
+    	.step-title {
+    		border-bottom: 0;
+    	}
+
+    	.field {
+    		display: flex;
+    		justify-content: space-between;
+
+    		.control {
+    			width: 65%;
+    		}   		
+    	}
+
+    	.street {
+    		legend {
+    			display: none !important;
+    		}
+    		>.control {
+    			width: 100%;
+
+    			.field {
+    				.label {
+    					width: auto;
+    					height: auto;
+    					position: unset;
+    				}
+    			}
+    		}
+    	}
+
+    	.form-login {
+    		border-bottom: 0;
+    		padding-bottom: 0;
+    		margin-bottom: 0;
+    		margin-top: 0;
+    	}
+	}
+		
+	.actions-toolbar {
+		max-width: 500px;
+		div {
+			width: 100%;
+			.button.continue {
+				width: 100%;
+			}
+		}
+	}
+
+	.opc-wrapper .step-content {
+		padding-left: 30px;
+	}
+}
