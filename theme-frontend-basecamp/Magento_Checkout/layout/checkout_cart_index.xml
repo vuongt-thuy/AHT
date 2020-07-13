@@ -21,7 +21,7 @@
 
 
         
-		<container name="info.and.summary" htmlClass="info-and-summary" htmlTag="div" as="info_ands_summary" label="Info And Summary" after="-">
+		<container name="info.and.summary" htmlClass="cart-info-and-summary" htmlTag="div" as="info_ands_summary" label="Info And Summary" after="-">
 		<block class="Magento\Cms\Block\Block" name="cart.information">
 			<arguments>
 				<argument name="block_id" xsi:type="string">cart-information</argument>

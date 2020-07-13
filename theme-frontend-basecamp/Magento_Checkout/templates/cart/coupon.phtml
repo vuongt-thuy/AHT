@@ -13,7 +13,6 @@ $hasCouponCode = (bool) strlen($block->getCouponCode());
 ?>
 <div class="block discount"
      id="block-discount"
-     data-mage-init='{"collapsible":{"active": <?= $hasCouponCode ? 'true' : 'false' ?>, "openedState": "active", "saveState": false}}'
 >
     <div class="title">
         <p id="block-discount-heading" role="heading" aria-level="2"><?= $block->escapeHtml(__('Voucher code')) ?></p>
