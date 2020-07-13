@@ -50,14 +50,6 @@
 		border-top: none;
 	}
 
-	.button.continue {
-		width: 100%;
-		background-color: #7ebf3a; 
-		&:hover {
-			background-color: #00ae66;
-		}
-	}
-
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
@@ -126,11 +118,8 @@
     	padding-right: 0;
     	float: none;
 
-    	&::before {
-    		display: block;
-    		content: "Checkout";
-    		font-size: 3rem;
-    		padding-bottom: 15px;
+    	h1 {
+    		font-weight: 600;
     	}
 
     	.step-title {
