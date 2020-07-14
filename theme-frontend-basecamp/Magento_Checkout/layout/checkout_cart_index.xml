@@ -9,27 +9,30 @@
 <page
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 	<body>
-      <referenceContainer name="checkout.cart.container"> 
-		<referenceBlock name="page.main.title">
-			<action method="setPageTitle">
-				<argument translate="true" name="title" xsi:type="string">My Shopping Basket - </argument>
-			</action>
-
-			<block class="Magento\Framework\View\Element\Template" name="cart-title" template="Magento_Checkout::title.phtml" />
-		</referenceBlock>
+	
 
 
+		<referenceContainer name="checkout.cart.container"> 
+			<referenceBlock name="page.main.title">
+				<action method="setPageTitle">
+					<argument translate="true" name="title" xsi:type="string">My Shopping Basket - </argument>
+				</action>
 
-        
-		<container name="info.and.summary" htmlClass="cart-info-and-summary" htmlTag="div" as="info_ands_summary" label="Info And Summary" after="-">
-		<block class="Magento\Cms\Block\Block" name="cart.information">
-			<arguments>
-				<argument name="block_id" xsi:type="string">cart-information</argument>
-			</arguments>
-		</block>
-		</container>
+				<block class="Magento\Framework\View\Element\Template" name="cart-title" template="Magento_Checkout::title.phtml" />
+			</referenceBlock>
 
-  </referenceContainer>
+
+
+
+			<container name="info.and.summary" htmlClass="cart-info-and-summary" htmlTag="div" as="info_ands_summary" label="Info And Summary" after="-">
+				<block class="Magento\Cms\Block\Block" name="cart.information">
+					<arguments>
+						<argument name="block_id" xsi:type="string">cart-information</argument>
+					</arguments>
+				</block>
+			</container>
+
+		</referenceContainer>
 		<move element="cart.summary" destination="info.and.summary" after="cart.information"/>
 	</body>
 </page>
