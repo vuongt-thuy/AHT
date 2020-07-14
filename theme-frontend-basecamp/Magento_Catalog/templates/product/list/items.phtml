@@ -206,8 +206,8 @@ $_item = null;
                                                             <strong class="product name product-item-name"><a class="product-item-link" title="<?= $block->escapeHtmlAttr($_item->getName()) ?>" href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>">
                                                                 <?= $block->escapeHtml($_item->getName()) ?></a>
                                                             </strong>
-
-                                                            <?= /* @noEscape */ $_item->getShortDescription()?>
+                                                            <div class="product-item-short-description">
+                                                            <?= /* @noEscape */ $_item->getShortDescription()?></div>
 
                                                              <?= /* @noEscape */ $block->getProductPrice($_item) ?>
 
