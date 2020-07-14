@@ -13,6 +13,7 @@
 
 
 		<referenceContainer name="checkout.cart.container"> 
+			<block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="Magento_Checkout::html/title.phtml"/>
 			<referenceBlock name="page.main.title">
 				<action method="setPageTitle">
 					<argument translate="true" name="title" xsi:type="string">My Shopping Basket - </argument>

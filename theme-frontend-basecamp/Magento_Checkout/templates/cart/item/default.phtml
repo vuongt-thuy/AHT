@@ -151,14 +151,6 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                         <span><?= $block->escapeHtml(__('Continue Shopping')) ?></span>
                     </a>
                 <?php endif; ?>
-                <button type="button"
-                name="update_cart_action"
-                data-cart-empty=""
-                value="empty_cart"
-                title="<?= $block->escapeHtmlAttr(__('Clear Shopping Cart')) ?>"
-                class="action clear" id="empty_cart_button">
-                <span><?= $block->escapeHtml(__('Clear Shopping Cart')) ?></span>
-            </button>
             <button type="submit"
             name="update_cart_action"
             data-cart-item-update=""
@@ -167,7 +159,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
             class="action update">
             <span><?= $block->escapeHtml(__('Update')) ?></span>
         </button>
-        <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update=""/>
+        <input type="hidden" value="" data-cart-item-update=""/>
     </div>
 </div>
 </td>
