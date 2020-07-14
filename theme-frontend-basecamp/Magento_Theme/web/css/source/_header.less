@@ -1,0 +1,263 @@
+// & when (@media-common =true) {
+//   @import "slick.less";
+//   @import "slick-theme.less";
+// }
+
+& when (@media-common =false) {
+ 
+  
+    .header.content {
+      .logo {
+        margin: 0;
+        position: relative;
+
+        img {
+          position: absolute;
+          max-width: none;
+          top: -43px;
+        }
+      }
+    }
+  
+}
+
+& when (@media-common =true) // false dung cho desktop, true dung cho style-m
+{
+  .slick-prev.slick-arrow {
+    background-color: red;
+  }
+
+  .slick-next.slick-arrow {
+    background-color: green;
+  }
+
+  .page-header {
+    .panel.wrapper {
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+
+      .header.links > li > a {
+        color: #57626e;
+      }      
+    }
+    
+    
+  }
+
+  .page-header .panel.wrapper {
+    background-color: white;
+  }
+
+  .header.links {
+    color: black;
+  }
+
+  .header.links li a {
+    color: black;
+  }
+
+  .section-item-content.nav-sections-item-content {
+    background-color: white;
+  }
+
+  .action.search {
+    width: 46px;
+    height: 32px;
+  }
+
+  .head3 {
+    display: flex;
+    justify-content: space-between;
+
+    .block.block-search {
+      display: flex;
+    }
+
+    .logodiv{
+      width: 10%;
+    }
+
+    .topsearchdiv {
+      width: 37%;
+
+      .block.block-search {
+        width: 100%;
+
+        .block.block-content {
+          width: 100%;
+        }
+      }
+    }
+    .minicartdiv{
+        display: flex;
+        .action.showcart{
+          display: flex;
+          margin-left: -100px;
+          justify-content: space-evenly;
+          .subtotal_span{
+              padding-top: 5px;
+              color:black;
+              font-weight: bold;
+          }
+        }
+    }
+  }
+
+  .rectangle {
+    margin-top: -1%;
+    background: #e2e1e1;
+
+    .page-main {
+      width: 100%;
+    }
+
+    .rectangle1 {
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      //   max-width: 1280px;
+      text-align: center;
+
+      //   .one {
+      //     width: 100%;
+      //   }
+      //   .two {
+      //     width: 100%;
+      //   }
+      //   .three {
+      //     width: 100%;
+      //   }
+      //   .four {
+      //     width: 100%;
+      //   }
+      .one {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  .breadcrumbs {
+    margin-top: 2%;
+  }
+
+  .minicart-wrapper .action.showcart .counter.qty {
+    background: #858688;
+    color: white;
+    border-radius: 100%;
+  }
+
+  .minicart-wrapper .action.showcart:before {
+    content: none;
+  }
+
+  .button_checkout {
+    width: 132px;
+    display: flex;
+
+    .checkout {
+    //   border: solid;
+      background: #8cb859;
+      color: white;
+      text-align: center;
+      padding-top: 5px;
+    //   height: 100%;
+      width: 100%;
+      text-decoration: none;
+    }
+  }
+  #maincontent {
+    margin-top: 7%;
+  }
+
+  
+
+  .primary {
+    width: 100%;
+
+    .action.submit.primary {
+      width: 100%;
+      background: #7ebf3a;
+    }
+  }
+  .minicart-wrapper .action.showcart .counter.qty.empty {
+    display: block;
+  }
+}
+
+.media-width(@extremum, @break)
+  when
+  (@extremum ="min")
+  and
+  (@break =@screen__m) {
+  .page-header .panel.wrapper {
+    background-color: white;
+    border-bottom: none;
+  }
+
+  .block-search .action.search {
+    background: black; 
+  }
+
+  .block-search{
+      padding-left: 32px;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .contact-index-index .column:not(.sidebar-additional) .form.contact {
+    min-width: 411px;
+  }
+  .minicart-wrapper {
+    margin-left: 0px;
+  }
+  .navigation, .breadcrumbs, .page-header .header.panel, .header.content, .footer.content, .page-wrapper > .widget, .page-wrapper > .page-bottom, .block.category.event, .top-container, .page-main {
+    max-width: 1448px;
+  }
+}
+
+.media-width(@extremum, @break)
+  when
+  (@extremum ="max")
+  and
+  (@break =@screen__m) {
+  .rectangle1 {
+    font-size: 10%;
+
+    .one {
+      img {
+        width: 11%;
+        height: 31%;
+      }
+    }
+  }
+  
+  .minicartdiv{
+    .button_checkout{
+      display: none;
+    }
+  }
+  .logodiv{
+    .logo{
+      max-width: 100%;
+      img{
+        // margin-left: 100%;
+        margin-top: 3px;
+        max-height: 40px;
+        max-width: 53px;
+      }
+    }
+  }
+  .block-search .control {
+    border-top: solid 0px;
+  }
+  // .block-search input {
+  //   margin:0px;
+  // }
+  // input[type="text"], input[type="password"], input[type="url"], input[type="tel"], input[type="search"], input[type="number"], input[type="datetime"], input[type="email"] {
+  //   width: 55%;
+  // }
+}

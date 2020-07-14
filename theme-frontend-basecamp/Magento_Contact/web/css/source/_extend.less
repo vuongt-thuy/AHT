@@ -1,0 +1,46 @@
+& when (@media-common =false){
+    .ui-menu.ui-widget.ui-widget-content.ui-corner-all {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+      }
+      .contact_content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 50px;
+        .ct {
+          p {
+            line-height: 25px;
+          }
+        }
+      }
+}
+
+& when (@media-common = true){
+    .required {
+        display: flex;
+        justify-content: space-between;
+      }
+    
+      .telephone {
+        display: flex;
+        justify-content: space-between;
+      }
+    
+      .control.ct {
+        width: 60%;
+      }
+}
+
+.media-width(@extremum, @break)
+  when
+  (@extremum ="max")
+  and
+  (@break =@screen__m) {
+    .contact_content {
+        display: grid;
+        grid-template-columns: 1fr;
+        // grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 20px;
+      }
+  }

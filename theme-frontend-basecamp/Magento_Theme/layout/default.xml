@@ -10,6 +10,85 @@
         	<move element="copyright" destination="logo-footer" after="-"/>
 
     <body>
+		<!-- header  -->
+		<referenceBlock name="header" remove="true" />
+        <referenceBlock name="header.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="your-link" before="-">
+                <arguments>
+                    <argument name="label" xsi:type="string">My account</argument>
+                    <argument name="path" xsi:type="string">Your Link</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="link2">
+                <arguments>
+                    <argument name="label" xsi:type="string">My Wishlist</argument>
+                    <argument name="path" xsi:type="string">dkdk</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="contact-us">
+                <arguments>
+                    <argument name="label" xsi:type="string">Contact us</argument>
+                    <argument name="path" xsi:type="string">dkdk</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="call-us">
+                <arguments>
+                    <argument name="label" xsi:type="string">Call us: +3531 443 0800</argument>
+                    <argument name="path" xsi:type="string">
+                        <a href="tel:123-456-7890">123-456-7890</a>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="register-link" remove="true"/>
+        <referenceBlock name="authorization-link-login" remove="true" />
+        <!-- <referenceContainer name="catalog.topnav">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="your.link">
+                <arguments>
+                    <argument name="label" xsi:type="string">Link-name</argument>
+                    <argument name="path" xsi:type="string">Link-url</argument>
+                </arguments>
+            </block>
+        </referenceContainer> -->
+
+        <!-- <referenceBlock name="register-link">
+            <arguments>
+                <argument name="label" xsi:type="string">Dang ki</argument>
+            </arguments>
+        </referenceBlock> -->
+        <!-- <referenceBlock name="register-link" remove="true" /> -->
+        <!--javascript-->
+        <!--js-->
+
+        <container name="head3" htmlTag="div" htmlClass="head3">
+            <container name="logodiv" label="" output="0" htmlTag="div" htmlId="" htmlClass="logodiv" />
+            <container name="topsearchdiv" label="" output="0" htmlTag="div" htmlId="" htmlClass="topsearchdiv" />
+            <container name="minicartdiv" label="" output="0" htmlTag="div" htmlId="" htmlClass="minicartdiv" />
+            <!-- <container name="subtotal" label="" output="0" htmlTag="div" htmlId="" htmlClass="subtotal" /> -->
+        </container>
+        <container name="rectangle" label="" output="0" htmlTag="div" htmlId="" htmlClass="rectangle">
+            <block class="Magento\Cms\Block\Block" name="rectangle1">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">rectangle</argument>
+                </arguments>
+            </block>
+        </container>
+        <container name="button_checkout" label="" output="0" htmlTag="" htmlId="" htmlClass="">
+            <block class="Magento\Cms\Block\Block" name="button_checkout1">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">button_checkout</argument>
+                </arguments>
+            </block>
+        </container>
+        <move element="button_checkout" destination="minicartdiv" after="minicart" />
+        <move element="minicart" destination="minicartdiv" />
+        <move element="top.search" destination="topsearchdiv" />
+        <move element="logo" destination="logodiv" />
+        <move element="head3" destination="header-wrapper" />
+        <move element="rectangle" destination="page.top" after="navigation.sections" />
+		<!-- header -->
+		
+		<!-- footer -->
         <referenceBlock name="form.subscribe" remove="true"></referenceBlock>
         <referenceBlock name="footer_links" remove="true"></referenceBlock>
         <referenceContainer name="footer">
@@ -137,5 +216,6 @@
     		</container>
 			
         </referenceContainer>
+		<!-- footer -->
     </body>
 </page>

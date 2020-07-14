@@ -1,0 +1,115 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Contact\Block\ContactForm $block */
+?>
+<div class="contact_content">
+    <div class="col1">
+        <div class="ct">
+            <p>If you would like to get in touch you can do so using the 'chat' icon visible on any page of our website.
+                If you prefer you can fill out the contact form on this page, call us on +353 1 443 0800, or email to
+                info@basecamp.ie</p>
+        </div>
+        <div class="ct">
+            <p>You can also write to us at:</p>
+            <p>Basecamp Customer Care,</p>
+            <p>108-109 Middle Abbey Street</p>
+            <p>Dublin 1</p>
+        </div>
+        <div class="ct">
+            <p>We are always looking to improve our service, and to help us achieve this we would love to hear from
+                you.One of our care team will then be in contact with a speedy reply.</p>
+        </div>
+    </div>
+    <div class="">
+        <form class="form contact" action="<?= $block->escapeUrl($block->getFormAction()) ?>" id="contact-form"
+            method="post" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+            data-mage-init='{"validation":{}}'>
+            <fieldset class="fieldset">
+                <!-- <legend class="legend"><span><?= $block->escapeHtml(__('Write Us')) ?></span></legend><br />
+                <div class="field note no-label">
+                    <?= $block->escapeHtml(__('Jot us a note and we’ll get back to you as quickly as possible.')) ?>
+                </div> -->
+                <div class="field name required">
+                    <label class="label" for="name"><span><?= $block->escapeHtml(__('Full Name')) ?></span></label>
+                    <div class="control ct">
+                        <input name="name" id="name" title="<?= $block->escapeHtmlAttr(__('Full Name')) ?>"
+                            value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('name') ?: $this->helper(\Magento\Contact\Helper\Data::class)->getUserName()) ?>"
+                            class="input-text" type="text" data-validate="{required:true}" />
+                    </div>
+                </div>
+                <div class="field email required">
+                    <label class="label" for="email"><span><?= $block->escapeHtml(__('Email Address')) ?></span></label>
+                    <div class="control ct">
+                        <input name="email" id="email" title="<?= $block->escapeHtmlAttr(__('Email Address')) ?>"
+                            value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('email') ?: $this->helper(\Magento\Contact\Helper\Data::class)->getUserEmail()) ?>"
+                            class="input-text" type="email" data-validate="{required:true, 'validate-email':true}" />
+                    </div>
+                </div>
+                <div class="field name required">
+                    <label class="label" for="name"><span><?= $block->escapeHtml(__('Subject')) ?></span></label>
+                    <div class="control ct">
+                        <input name="Subject" id="Subject" title="<?= $block->escapeHtmlAttr(__('Subject')) ?>"
+                            value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('Subject') ?: $this->helper(\Magento\Contact\Helper\Data::class)->getUserName()) ?>"
+                            class="input-text" type="text" data-validate="{required:true}" />
+                    </div>
+                </div>
+
+                <div class="field comment required">
+                    <label class="label" for="comment"><span><?= $block->escapeHtml(__('Description')) ?></span></label>
+                    <div class="control ct">
+                        <textarea name="comment" id="comment" title="<?= $block->escapeHtmlAttr(__('Description')) ?>"
+                            class="input-text" cols="5" rows="3"
+                            data-validate="{required:true}"><?= $block->escapeHtml($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('comment')) ?></textarea>
+                    </div>
+                </div>
+                <div class="field telephone">
+                    <label class="label" for="Order"><span><?= $block->escapeHtml(__('Order Number')) ?></span></label>
+                    <div class="control ct">
+                        <input name="Order" id="Order" title="<?= $block->escapeHtmlAttr(__('Order Number')) ?>"
+                            value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('Order')) ?>"
+                            class="input-text" type="text" />
+                    </div>
+                </div>
+                <div class="field telephone">
+                    <label class="label"
+                        for="Product"><span><?= $block->escapeHtml(__('Product Number')) ?></span></label>
+                    <div class="control ct">
+                        <input name="Product" id="Product" title="<?= $block->escapeHtmlAttr(__('Product Number')) ?>"
+                            value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('Product')) ?>"
+                            class="input-text" type="text" />
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+      
+          <?= $block->getChildHtml('form.additional.info') ?>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <input type="hidden" name="hideit" id="hideit" value="" />
+                    <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>"
+                        class="action submit primary">
+                        <span><?= $block->escapeHtml(__('Submit')) ?></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col3">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20778.103023409523!2d-6.283546928462047!3d53.34861533821258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcfd8f2e983c83e9d!2sBasecamp%20Outdoor%20Store!5e0!3m2!1svi!2s!4v1594105413610!5m2!1svi!2s"
+            width="384" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+    </div>
+</div>
