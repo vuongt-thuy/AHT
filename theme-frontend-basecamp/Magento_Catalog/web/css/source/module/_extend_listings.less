@@ -1,8 +1,39 @@
 & when (@media-common = true) {
+  .product-image-wrapper {
+    border: 1px solid #c2c2c2;
+  }
+
   .product {
     &-item {
       &-info {
         margin: 0 auto !important;
+      }
+      .old-price {
+        text-decoration: line-through;
+        .price {
+          color: #666 !important;
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break)
+  when
+  (@extremum = "min")
+  and
+  (@break = @screen__l) {
+  .page-layout-1column {
+    .products-grid {
+      .product-item {
+        width: 100%/2;
+      }
+    }
+  }
+  .product {
+    &-item {
+      &-info {
+        width: 195px;
       }
     }
   }
@@ -20,7 +51,16 @@
       }
     }
   }
+
+  .product {
+    &-item {
+      &-info {
+        width: 130px;
+      }
+    }
+  }
 }
+
 .media-width(@extremum, @break)
   when
   (@extremum = "min")
@@ -42,17 +82,40 @@
       }
     }
   }
+
+  .product {
+    &-item {
+      &-info {
+        width: 200px;
+      }
+    }
+  }
 }
 
 .media-width(@extremum, @break)
   when
-  (@extremum = "min")
+  (@extremum = "max")
   and
-  (@break = @screen__l) {
+  (@break = @screen__s) {
   .page-layout-1column {
     .products-grid {
       .product-item {
-        width: 100%/2;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break)
+  when
+  (@extremum = "max")
+  and
+  (@break = @screen__xxs) {
+  .page-layout-1column {
+    .products-grid {
+      .product-item {
+        width: 100%;
+        margin-left: 5.5px;
       }
     }
   }

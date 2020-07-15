@@ -4,38 +4,54 @@
 @import "module/_extend_listings.less";
 
 & when (@media-common = true) {
-  .product-info-main {
-    .product-info-price {
-      border-bottom: none;
+  & when (@media-common = true) {
+    .product-info-main {
+      .product-info-price {
+        border-bottom: none;
+      }
     }
-  }
 
-  //
-  //  Blocks & Widgets
-  //  ---------------------------------------------
+    //
+    //  Blocks & Widgets
+    //  ---------------------------------------------
 
-  .block {
-    .title {
-      text-align: center;
+    .block {
+      .title {
+        text-align: center;
+      }
     }
-  }
 
-  .fotorama {
-    margin-bottom: 50px;
-  }
-  .fotorama__stage__frame {
-    .fotorama__img {
-      height: 100% !important;
-      object-fit: cover;
+    .fotorama {
+      margin-bottom: 50px;
     }
-  }
 
-  .fotorama__wrap--css3.fotorama__wrap--slide {
     .fotorama__stage__frame {
-      width: 99.5%;
-      height: 99.5%;
-      border: 1px solid #868686;
+      .fotorama__img {
+        height: 100% !important;
+        object-fit: cover;
+      }
     }
+
+    .fotorama__wrap--css3 .fotorama__stage__shaft {
+      height: 580px;
+    }
+
+    .fotorama__wrap--css3 .fotorama__nav {
+      height: 580px !important;
+    }
+
+    .fotorama__wrap {
+      height: 580px;
+      border-bottom: 50px;
+    }
+  }
+
+  .fotorama__thumb-border {
+    display: none;
+  }
+
+  .fotorama__wrap--css3 .fotorama__arr:not(:focus) {
+    height: 580px;
   }
 }
 
@@ -54,6 +70,7 @@
         font-weight: 600;
         border-radius: 5px;
         margin: 0 3px;
+        border: 1px solid #c2c2c2;
       }
       width: 33.444444%;
       text-align: center;
@@ -63,6 +80,49 @@
         background: #4f4f4f;
         color: white;
       }
+    }
+  }
+}
+
+.media-width(@extremum, @break)
+  when
+  (@extremum = "min")
+  and
+  (@break = @screen__m) {
+  .fotorama__wrap--css3.fotorama__wrap--slide {
+    .fotorama__stage__frame {
+      border: 1px solid #c2c2c2;
+      width: 99.5%;
+      height: 99%;
+    }
+  }
+  .fotorama__thumb {
+    width: 96%;
+    background-color: #fff;
+    border: 1px solid #c2c2c2;
+  }
+
+  .fotorama__nav--thumbs {
+    .fotorama__nav__frame {
+      margin-bottom: 3px;
+    }
+  }
+
+  .product.data.items {
+    > .item.content {
+      border: 1px solid #c2c2c2;
+    }
+  }
+}
+
+.media-width(@extremum, @break)
+  when
+  (@extremum = "max")
+  and
+  (@break = @screen__m) {
+  .fotorama__wrap--css3.fotorama__wrap--slide {
+    .fotorama__stage__frame {
+      border: none;
     }
   }
 }

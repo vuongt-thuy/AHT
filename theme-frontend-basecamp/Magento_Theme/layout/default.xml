@@ -35,7 +35,6 @@
                 <arguments>
                     <argument name="label" xsi:type="string">Call us: +3531 443 0800</argument>
                     <argument name="path" xsi:type="string">
-                        <a href="tel:123-456-7890">123-456-7890</a>
                     </argument>
                 </arguments>
             </block>
@@ -61,19 +60,19 @@
         <!--js-->
 
         <container name="head3" htmlTag="div" htmlClass="head3">
-            <container name="logodiv" label="" output="0" htmlTag="div" htmlId="" htmlClass="logodiv" />
-            <container name="topsearchdiv" label="" output="0" htmlTag="div" htmlId="" htmlClass="topsearchdiv" />
-            <container name="minicartdiv" label="" output="0" htmlTag="div" htmlId="" htmlClass="minicartdiv" />
-            <!-- <container name="subtotal" label="" output="0" htmlTag="div" htmlId="" htmlClass="subtotal" /> -->
+            <container name="logodiv"  htmlTag="div" htmlClass="logodiv" />
+            <container name="topsearchdiv" htmlTag="div" htmlClass="topsearchdiv" />
+            <container name="minicartdiv" htmlTag="div" htmlClass="minicartdiv" />
+            <!-- <container name="subtotal" label=""  htmlTag="div" htmlId="" htmlClass="subtotal" /> -->
         </container>
-        <container name="rectangle" label="" output="0" htmlTag="div" htmlId="" htmlClass="rectangle">
+        <container name="rectangle" htmlTag="div" htmlClass="rectangle">
             <block class="Magento\Cms\Block\Block" name="rectangle1">
                 <arguments>
                     <argument name="block_id" xsi:type="string">rectangle</argument>
                 </arguments>
             </block>
         </container>
-        <container name="button_checkout" label="" output="0" htmlTag="" htmlId="" htmlClass="">
+        <container name="button_checkout">
             <block class="Magento\Cms\Block\Block" name="button_checkout1">
                 <arguments>
                     <argument name="block_id" xsi:type="string">button_checkout</argument>
