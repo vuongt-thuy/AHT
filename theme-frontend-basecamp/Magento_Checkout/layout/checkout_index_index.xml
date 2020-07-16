@@ -7,6 +7,7 @@
             <referenceBlock name="catalog.compare.link" remove="false" /> 
             <referenceBlock name="catalog.topnav" remove="false"/>
             <referenceContainer name="footer-container"  remove="false"/>
+            <referenceContainer name="rectangle" remove="true"></referenceContainer>
             <referenceBlock name="checkout.root">
 	            <arguments>
 	                <argument name="jsLayout" xsi:type="array">
