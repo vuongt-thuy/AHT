@@ -1,35 +1,45 @@
-& when (@media-common =false){
-    .ui-menu.ui-widget.ui-widget-content.ui-corner-all {
-        background-color: white;
-        display: flex;
-        justify-content: center;
+& when (@media-common =false) {
+  .contact_content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 50px;
+    .ct {
+      p {
+        line-height: 25px;
       }
-      .contact_content {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 50px;
-        .ct {
-          p {
-            line-height: 25px;
-          }
-        }
-      }
+    }
+  }
 }
 
-& when (@media-common = true){
+& when (@media-common = true) {
+  .contact_content {
     .required {
-        display: flex;
-        justify-content: space-between;
-      }
-    
-      .telephone {
-        display: flex;
-        justify-content: space-between;
-      }
-    
-      .control.ct {
-        width: 60%;
-      }
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .telephone {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .control.ct {
+    width: 60%;
+  }
+
+  .contact-index-index #maincontent {
+    margin-top: 45px;
+    input[type="text"],
+    input[type="password"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="search"],
+    input[type="number"],
+    input[type="datetime"],
+    input[type="email"] {
+      width: 100%;
+    }
+  }
 }
 
 .media-width(@extremum, @break)
@@ -37,10 +47,26 @@
   (@extremum ="max")
   and
   (@break =@screen__m) {
-    .contact_content {
-        display: grid;
-        grid-template-columns: 1fr;
-        // grid-template-rows: 1fr 1fr 1fr;
-        grid-gap: 20px;
-      }
+  .contact_content {
+    display: grid;
+    grid-template-columns: 1fr;
+    // grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 20px;
   }
+}
+
+@media only screen and (max-width: @screen__l) {
+  .contact_content {
+    display: grid;
+    grid-template-columns: 1fr;
+    // grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 20px;
+
+    #contact-form {
+      width: 100%;
+    }
+    .actions-toolbar {
+      max-width: 100%;
+    }
+  }
+}

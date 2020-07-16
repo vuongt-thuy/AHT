@@ -21,7 +21,13 @@
             <!-- /ko -->
             </span>
         </span>
-        <span class="subtotal_span" data-bind="html: getCartParam('subtotal')"></span>
+        <span class="subtotal_span" data-bind="html: getCartParam('subtotal')"></span> 
+        <button id="top-cart-btn-checkout" type="button" class="action primary checkout" data-action="close" data-bind="
+                            attr: {
+                                title: $t('Checkout')
+                            },
+                            click: closeMinicart()
+                        , i18n: 'Checkout'" title="Checkout">Checkout</button>
     </a>
     <?php if ($block->getIsNeedToDisplaySideBar()) :?>
         <div class="block block-minicart"
