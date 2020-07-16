@@ -11,6 +11,9 @@
 
 	& when (@media-common = true) {
 		.home-page-owl-carousel{
+			&:hover .owl-nav button{
+			   display: block;
+			}
 			.item{
 				position: relative;
 				.item-content{
@@ -20,8 +23,9 @@
 					transform: rotate(-7deg);  
 					font-family: @font-family__caveat;
 					text-transform: uppercase;
-					text-align: center;  	
+					text-align: center;
 				}
+
 				p{
 					font-size: 73px;
 					line-height: 60px;
@@ -32,6 +36,44 @@
 					line-height: 0px;
 					cursor: pointer;
 					.lib-css(color, @color-red10);
+				}
+			}
+
+			.carousel-wrap {
+				position: relative;
+			}
+
+			/* fix blank or flashing items on carousel */
+			.owl-carousel .item {
+				position: relative;
+				z-index: 100; 
+				-webkit-backface-visibility: hidden; 
+			}
+
+			/* end fix */
+			.owl-nav{
+				& > button {
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					.lib-css(color, @color-gray62);
+					box-shadow: none;
+					opacity: .5;
+					display: none;
+					&:hover{
+						opacity: 1;
+					}
+				}
+				& i {
+					font-size: 82px;
+				}
+
+				& .owl-prev {
+					left: 20px;
+				}
+
+				& .owl-next {
+					right: 20px;
 				}
 			}
 		}
@@ -72,6 +114,3 @@
 		}
 	}
 }
-
-
-
