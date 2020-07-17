@@ -70,7 +70,7 @@ id="block-discount"
  foreach($coupon as $items1)
  {  
     echo '<div>';
-  if ($items1->getUsageLimit()) {
+  if ($items1->getUsageLimit()>0) {
     echo "Coupon Code: " . $items1->getCode()."</br>";
       foreach($salerule as $items)
       {
