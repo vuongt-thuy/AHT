@@ -12,54 +12,91 @@
 $hasCouponCode = (bool) strlen($block->getCouponCode());
 ?>
 <div class="block discount"
-     id="block-discount"
+id="block-discount"
 >
-    <div class="title">
-        <p id="block-discount-heading" role="heading" aria-level="2"><?= $block->escapeHtml(__('Voucher code')) ?></p>
-    </div>
-    <div class="content" data-role="content" aria-labelledby="block-discount-heading">
-        <form id="discount-coupon-form"
-              action="<?= $block->escapeUrl($block->getUrl('checkout/cart/couponPost')) ?>"
-              method="post"
-              data-mage-init='{"discountCode":{"couponCodeSelector": "#coupon_code",
-                                               "removeCouponSelector": "#remove-coupon",
-                                               "applyButton": "button.action.apply",
-                                               "cancelButton": "button.action.cancel"}}'>
-            <div class="fieldset coupon<?= $hasCouponCode ? ' applied' : '' ?>">
-                <input type="hidden" name="remove" id="remove-coupon" value="0" />
-                <div class="field">
-                    <div class="control">
-                        <input type="text"
-                               class="input-text"
-                               id="coupon_code"
-                               name="coupon_code"
-                               value="<?= $block->escapeHtmlAttr($block->getCouponCode()) ?>"
-                                <?php if ($hasCouponCode) :?>
-                                   disabled="disabled"
-                                <?php endif; ?>
-                        />
-                    </div>
-                </div>
-                <div class="actions-toolbar">
-                    <?php if (!$hasCouponCode) :?>
-                    <div class="primary">
-                        <button class="action apply primary" type="button" value="<?= $block->escapeHtmlAttr(__('Apply')) ?>">
-                            <span><?= $block->escapeHtml(__('Apply')) ?></span>
-                        </button>
-                    </div>
-                    <?php else :?>
-                        <div class="primary">
-                            <button  type="button" class="action cancel primary" value="<?= $block->escapeHtmlAttr(__('Cancel Coupon')) ?>"><span><?= $block->escapeHtml(__('Cancel Coupon')) ?></span></button>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <?php if (!$hasCouponCode) : ?>
-                <?= /* @noEscape */ $block->getChildHtml('captcha') ?>
-            <?php endif; ?>
-        </form>
-    </div>
-    <div class="current-code">
-       <a href="" ><?= $block->escapeHtmlAttr(__('See current codes')) ?></a>
-    </div>
+<div class="title">
+  <p id="block-discount-heading" role="heading" aria-level="2"><?= $block->escapeHtml(__('Voucher code')) ?></p>
 </div>
+<div class="content" data-role="content" aria-labelledby="block-discount-heading">
+  <form id="discount-coupon-form"
+  action="<?= $block->escapeUrl($block->getUrl('checkout/cart/couponPost')) ?>"
+  method="post"
+  data-mage-init='{"discountCode":{"couponCodeSelector": "#coupon_code",
+  "removeCouponSelector": "#remove-coupon",
+  "applyButton": "button.action.apply",
+  "cancelButton": "button.action.cancel"}}'>
+  <div class="fieldset coupon<?= $hasCouponCode ? ' applied' : '' ?>">
+    <input type="hidden" name="remove" id="remove-coupon" value="0" />
+    <div class="field">
+      <div class="control">
+        <input type="text"
+        class="input-text"
+        id="coupon_code"
+        name="coupon_code"
+        value="<?= $block->escapeHtmlAttr($block->getCouponCode()) ?>"
+        <?php if ($hasCouponCode) :?>
+         disabled="disabled"
+       <?php endif; ?>
+       />
+     </div>
+   </div>
+   <div class="actions-toolbar">
+    <?php if (!$hasCouponCode) :?>
+      <div class="primary">
+        <button class="action apply primary" type="button" value="<?= $block->escapeHtmlAttr(__('Apply')) ?>">
+          <span><?= $block->escapeHtml(__('Apply')) ?></span>
+        </button>
+      </div>
+      <?php else :?>
+        <div class="primary">
+          <button  type="button" class="action cancel primary" value="<?= $block->escapeHtmlAttr(__('Cancel Coupon')) ?>"><span><?= $block->escapeHtml(__('Cancel Coupon')) ?></span></button>
+        </div>
+      <?php endif; ?>
+    </div>
+  </div>
+  <?php if (!$hasCouponCode) : ?>
+    <?= /* @noEscape */ $block->getChildHtml('captcha') ?>
+  <?php endif; ?>
+</form>
+</div>
+<div class="current-code">
+ <a ><?= $block->escapeHtmlAttr(__('See current codes')) ?></a>
+</div>
+</div>
+<div class="current-code-list">
+ <?php 
+ $coupon = $this->helper('Vendor\Module\Helper\SalesruleCoupon')->getCoupon();
+ $salerule = $this->helper('Vendor\Module\Helper\Salesrule')->getSalesrule();
+ foreach($coupon as $items1)
+ {  
+    echo '<div>';
+  if ($items1->getUsageLimit()) {
+    echo "Coupon Code: " . $items1->getCode()."</br>";
+      foreach($salerule as $items)
+      {
+    if ($items1->getRuleId() == $items->getRuleId()) {
+        echo "Coupon Name: " . $items->getName()."</br>";
+        echo "Coupon Start: " . $items->getFromDate()."</br>";
+        echo "Coupon End: " . $items->getTodate()."</br>";
+        echo "Coupon Discount Percent: " . number_format($items->getDiscountAmount(),0)."%</br>";
+      }
+    }
+  }
+  echo '</div>';
+}
+?> 
+
+
+</div>
+
+<script>
+  require([
+    'jquery',
+    ], function ($) {
+      $(document).ready(function() {
+       $('.current-code').click(function(event) {
+        $('.current-code-list').animate({ height: 'toggle' });
+      });
+     });
+    });
+  </script>
