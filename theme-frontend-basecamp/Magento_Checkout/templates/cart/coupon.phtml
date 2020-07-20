@@ -69,24 +69,27 @@ id="block-discount"
  $salerule = $this->helper('Vendor\Module\Helper\Salesrule')->getSalesrule();
  foreach($coupon as $items1)
  {  
-    echo '<div>';
+  echo '<div>';
   if ($items1->getUsageLimit()>0) {
     echo "Coupon Code: " . $items1->getCode()."</br>";
-      foreach($salerule as $items)
-      {
-    if ($items1->getRuleId() == $items->getRuleId()) {
+    foreach($salerule as $items)
+    {
+      if ($items->getSimpleAction() == "by_percent") {
+        $simple_action = "%";
+      }else {
+        $simple_action = "";
+      }
+      if ($items1->getRuleId() == $items->getRuleId()) {
         echo "Coupon Name: " . $items->getName()."</br>";
         echo "Coupon Start: " . $items->getFromDate()."</br>";
         echo "Coupon End: " . $items->getTodate()."</br>";
-        echo "Coupon Discount Percent: " . number_format($items->getDiscountAmount(),0)."%</br>";
+        echo "Coupon Discount " . str_replace("_"," ",$items->getSimpleAction()) . ": ". number_format($items->getDiscountAmount(),0). $simple_action."</br>";
       }
     }
   }
   echo '</div>';
 }
 ?> 
-
-
 </div>
 
 <script>
