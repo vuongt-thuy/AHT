@@ -6,6 +6,13 @@
  */
 
 /** @var \Magento\Contact\Block\ContactForm $block */
+echo $block->getLayout()
+
+->createBlock('Magento\Cms\Block\Block')
+
+->setBlockId('contact_text')
+
+->toHtml();
 ?>
 <div class="contact_content">
     <div class="col1">
@@ -22,9 +29,10 @@
         </div>
         <div class="ct">
             <p>We are always looking to improve our service, and to help us achieve this we would love to hear from
-                you.One of our care team will then be in contact with a speedy reply.</p>
+                you.One of our care team will then be in contact with a speedy&nbsp;</p>
         </div>
     </div>
+
     <div class="">
         <form class="form contact" action="<?= $block->escapeUrl($block->getFormAction()) ?>" id="contact-form"
             method="post" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
@@ -92,8 +100,8 @@
 
 
 
-      
-          <?= $block->getChildHtml('form.additional.info') ?>
+
+                <?= $block->getChildHtml('form.additional.info') ?>
             </fieldset>
             <div class="actions-toolbar">
                 <div class="primary">
