@@ -4,55 +4,87 @@
 @import "module/_extend_listings.less";
 
 & when (@media-common = true) {
-  & when (@media-common = true) {
-    .product-info-main {
-      .product-info-price {
-        border-bottom: none;
-      }
+  .product-info-main {
+    .product-info-price {
+      border-bottom: none;
     }
-
-    //
-    //  Blocks & Widgets
-    //  ---------------------------------------------
-
-    .block {
-      .title {
-        text-align: center;
-      }
-    }
-
-    .fotorama {
-      margin-bottom: 50px;
-    }
-
-    .fotorama__stage__frame {
-      .fotorama__img {
-        height: 100% !important;
-        object-fit: cover;
-      }
-    }
-
-    // .fotorama__wrap--css3 .fotorama__stage__shaft {
-    //   height: 580px;
-    // }
-
-    // .fotorama__wrap--css3 .fotorama__nav {
-    //   height: 580px;
-    // }
-
-    // .fotorama__wrap {
-    //   height: 580px;
-    //   border-bottom: 50px;
-    // }
   }
 
-  .fotorama__thumb-border {
-    display: none;
+  //
+  //  Blocks & Widgets
+  //  ---------------------------------------------
+
+  .block {
+    .title {
+      text-align: center;
+    }
   }
 
-  // .fotorama__wrap--css3 .fotorama__arr:not(:focus) {
-  //   height: 580px;
-  // }
+  .fotorama {
+    margin-bottom: 50px;
+    height: 700px;
+  }
+
+  .fotorama__stage__frame {
+    .fotorama__img {
+      height: 100% !important;
+      object-fit: cover;
+    }
+  }
+}
+
+.fotorama__thumb-border {
+  display: none;
+}
+
+.fotorama__nav {
+  height: 700px !important;
+}
+
+// .fotorama__wrap--css3 .fotorama__stage__shaft {
+//   max-height: 700px;
+//   max-width: 700px !important;
+//   height: 90%;
+//   width: 90% !important;
+// }
+
+.fotorama__wrap--css3 .fotorama__stage,
+.fotorama__wrap--css3 .fotorama__nav,
+.fotorama__wrap--css3 .fotorama__stage__frame,
+.fotorama__wrap--css3 .fotorama__html,
+.fotorama__stage:before,
+.fotorama__nav:before,
+.fotorama__stage:after,
+.fotorama__nav:after {
+  height: 85%;
+  width: 99% !important;
+}
+
+.fotorama--fullscreen {
+  height: auto !important;
+  .fotorama__wrap--css3 .fotorama__stage__shaft {
+    left: 2px;
+    right: 2px;
+    height: 100%;
+    width: 100% !important;
+  }
+  .fotorama__nav--thumbs {
+    left: 3px !important;
+  }
+  .fotorama__wrap--css3 .fotorama__stage,
+  .fotorama__wrap--css3 .fotorama__nav,
+  .fotorama__wrap--css3 .fotorama__stage__frame,
+  .fotorama__wrap--css3 .fotorama__html,
+  .fotorama__stage:before,
+  .fotorama__nav:before,
+  .fotorama__stage:after,
+  .fotorama__nav:after {
+    height: 100%;
+  }
+}
+
+.fotorama__wrap--css3 .fotorama__arr:not(:focus) {
+  height: 85%;
 }
 
 //
@@ -75,6 +107,7 @@
         border-radius: 5px;
         margin: 0 3px;
         border: 1px solid #c2c2c2;
+        padding: 0px 5px;
       }
       width: 33.444444%;
       text-align: center;
@@ -86,11 +119,10 @@
       }
     }
   }
+
   .fotorama__wrap--css3.fotorama__wrap--slide {
     .fotorama__stage__frame {
       border: 1px solid #c2c2c2;
-      width: 99.5%;
-      height: 99%;
     }
   }
   .fotorama__thumb {
@@ -106,14 +138,16 @@
   }
 }
 
-.media-width(@extremum, @break)
-  when
-  (@extremum = "max")
-  and
-  (@break = @screen__m) {
-  .fotorama__wrap--css3.fotorama__wrap--slide {
-    .fotorama__stage__frame {
-      border: none;
-    }
+//
+//  Tablet (for the front-end)
+//  _____________________________________________
+
+@media only screen and (max-width: @screen__m) {
+  .fotorama {
+    height: auto;
+  }
+
+  .fotorama__nav {
+    height: auto !important;
   }
 }
